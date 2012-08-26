@@ -35,7 +35,7 @@ public class UserBean implements Serializable {
 		user.setName(name);
 		user.setSurname(surname);
 		userService.addUser(user);
-	}
+	} 
 
 	/**
 	 * @return the name
