@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<p:dataTable  id="userList" value="#{userBean.dataList}" var="user" style="width:50%">
+			<p:column headerText="Id">
+				<h:outputText value="#{user.id}" />
+			</p:column>
+			<p:column headerText="Name">
+				<h:outputText value="#{user.name}" />
+			</p:column>
+			<p:column headerText="Surname">
+				<h:outputText value="#{user.surname}" />
+			</p:column>
+		</p:dataTable>
+
+		
+		<p:commandButton id="selectButton" update=":form:display"
+			oncomplete="userDialog.show()" icon="ui-icon-search" title="View" />
+
+		<p:dialog  widgetVar="userDialog" resizable="false"	id="userDlg"  modal="true">
+			<h:panelGrid id="display" columns="2"  >
+			
+				<h:outputText value="Name:" />
+				<h:inputText value="#{userBean.name}"	style="font-weight:bold" />
+
+				<h:outputText value="Surname:" />
+				<h:inputText value="#{userBean.surname}" style="font-weight:bold" />
+				<p:commandButton action="#{userBean.saveCommand}" update="userList" oncomplete="userDialog.hide()"/>
+			</h:panelGrid>
+
+		</p:dialog>
+	</h:form>
+
+</h:body>
+</html>
