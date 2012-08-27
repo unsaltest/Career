@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 @Scope(value="request")
 public class UserBean implements Serializable {
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L; 
 	
 	@Resource(name="userSevice")
 	private UserService userService;
